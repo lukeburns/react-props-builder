@@ -1,0 +1,23 @@
+{
+  "name": "react-builder",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "budo example/index.js --live -- -t [ babelify --presets [ @babel/preset-env @babel/preset-react ] ]"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.2.0",
+    "@babel/preset-env": "^7.2.0",
+    "@babel/preset-react": "^7.0.0",
+    "babelify": "^10.0.0",
+    "budo": "^11.5.0",
+    "react-dom": "^16.6.3"
+  },
+  "dependencies": {
+    "prop-types": "^15.6.2",
+    "react": "^16.6.3"
+  }
+}
