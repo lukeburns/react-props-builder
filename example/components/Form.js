@@ -16,7 +16,7 @@ Form.propTypes = {
 
 Form.Widgets = {
   action: Widgets.InputWidget,
-  text: Widgets.InputWidget
+  children: Widgets.InputWidget
 }
 
 export default Form

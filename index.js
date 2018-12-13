@@ -13,10 +13,13 @@ class TreeEditor extends React.Component {
     }
   }
   getState () {
-    return this.nodes.map(node => (node.ref && node.ref.current) ? node.ref.current.getState() : null)
+    let state = this.nodes.map(node => (node.ref && node.ref.current) ? node.ref.current.getState() : null)
+    return state
   }
   handleChange () {
-    if (this.props.onChange) this.props.onChange(this.getState())
+    if (this.props.onChange) {
+      this.props.onChange(this.getState())
+    }
   }
   render () {
     return (
@@ -43,7 +46,9 @@ class NodeEditor extends React.Component {
   }
   getState () {
     const keys = Object.keys(this.type.Widgets)
-    const props = objectMap(this.widgets, widget => (widget.ref && widget.ref.current) ? widget.ref.current.getState() : null)
+    const props = objectMap(this.widgets, widget => {
+      return (widget.ref && widget.ref.current) ? widget.ref.current.getState() : null
+    })
     return { component: this.type, props }
   }
   handleChange () {

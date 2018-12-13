@@ -17,13 +17,18 @@ Section.propTypes = {
 }
 
 const Form = require('./Form').default
-class TreeEditorWithForm extends Widgets.TreeEditor {
+class TreeEditorWithForm extends React.Component {
   constructor (props) {
     super(props)
+    this.getState = this.getState.bind(this)
+    this.childRef = React.createRef()
+  }
+  getState () {
+    return this.childRef.current.getState()
   }
   render () {
     return (
-      <Widgets.TreeEditor {...this.props} onLoad={({ appendNode }) => {
+      <Widgets.TreeEditor {...this.props} ref={this.childRef} onLoad={({ appendNode }) => {
         appendNode(Form)
       }} />
     )

@@ -13,8 +13,7 @@ render((
         appendNode(Form)
       }}
       onChange={state => {
-        console.log(state)
-        previewRef.current.set(state.map(node => node.component(node.props)))
+        previewRef.current.set(run(state))
       }}
     />
     <hr />
@@ -22,3 +21,16 @@ render((
     <Preview ref={previewRef} />
   </main>
 ), document.body)
+
+function run (nodes = []) {
+  return nodes.map(node => {
+    return node.component(objectMap(node.props, prop => prop instanceof Array ? run(prop) : prop))
+  })
+}
+
+function objectMap (object, mapFn) {
+  return Object.keys(object).reduce(function (result, key) {
+    result[key] = mapFn(object[key], key)
+    return result
+  }, {})
+}
