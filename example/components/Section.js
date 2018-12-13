@@ -1,9 +1,10 @@
 import PropTypes from 'prop-types'
+const React = require('react')
 const Widgets = require('../widgets')
 
 const Title = ({ title }) => <h1>{title}</h1>
 
-const Section = ({ title, children }) => (
+const Section = ({ title = ``, children = [] }) => (
   <section>
     <Title title={title} />
     <div>{children}</div>
@@ -15,9 +16,9 @@ Section.propTypes = {
   children: PropTypes.node
 }
 
-Section.widgets = {
+Section.Widgets = {
   title: Widgets.InputWidget,
-  children: Widgets.ComponentEditorWidget
+  children: Widgets.InputWidget
 }
 
 export default Section

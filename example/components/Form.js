@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types'
+const React = require('react')
 const Widgets = require('../widgets')
 
 const Form = ({ action, children }) => (
@@ -12,9 +13,9 @@ Form.propTypes = {
   children: PropTypes.node
 }
 
-Form.widgets = {
+Form.Widgets = {
   action: Widgets.InputWidget,
-  children: Widgets.ComponentEditorWidget
+  children: Widgets.TreeEditor
 }
 
 export default Form

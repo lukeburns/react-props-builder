@@ -25,7 +25,8 @@ class FormWidget extends React.Component {
       <form>
         <input type='text' name='action' value={this.state.action} />
         {this.props.children}
-      </form>)
+      </form>
+    )
   }
 }
 
