@@ -1,0 +1,24 @@
+body {
+  margin: 50px 200px;
+  font-size: 1.2em;
+}
+
+fieldset {
+  border: 1px solid rgba(0, 0, 0, .07);
+  border-radius: 5px;
+}
+
+input, textarea {
+  border: 1px solid rgba(0, 0, 0, .14);
+  font-size: 0.66em;
+}
+
+input, textarea {
+  padding: 5px;
+  margin: 5px;
+  width: 100%;
+}
+
+fieldset textarea {
+  min-height: 100px;
+}

@@ -1,25 +1,26 @@
 const React = require('react')
-/*
-[{ action: "/submit", children: [
-  inputWidget,
-  textareaWidget
-] }]
-*/
-class TextAreaWidget extends React.Component {
+
+class InputWidget extends React.Component {
   constructor (props) {
     super(props)
-    this.state = {
-      value: ''
-    }
+    this.state = { value: '' }
+    this.handleChange = this.handleChange.bind(this)
   }
   getState () {
-    return this.state
+    return this.state.value
+  }
+  handleChange (event) {
+    this.setState({value: event.target.value}, function () {
+      if (this.props.onChange) {
+        this.props.onChange(this.getState())
+      }
+    })
   }
   render () {
     return (
-      <textarea>{this.state.value}</textarea>
+      <textarea value={this.state.value} onChange={this.handleChange} placeholder={this.props.label}>{this.state.value}</textarea>
     )
   }
 }
 
-export default TextAreaWidget
+export default InputWidget

@@ -18,10 +18,7 @@ class InputWidget extends React.Component {
   }
   render () {
     return (
-      <fieldset>
-        <legend>{this.props.label}</legend>
-        <input type='text' value={this.state.value} onChange={this.handleChange} placeholder={this.props.label} />
-      </fieldset>
+      <input type='text' value={this.state.value} onChange={this.handleChange} placeholder={this.props.label} />
     )
   }
 }

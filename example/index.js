@@ -4,6 +4,8 @@ const Preview = require('./Preview').default
 const { Section, Form } = require('./components')
 const { render } = require('react-dom')
 
+import './style.css'
+
 const previewRef = React.createRef()
 render((
   <main>
@@ -16,8 +18,6 @@ render((
         previewRef.current.set(run(state))
       }}
     />
-    <hr />
-    <h1>Preview:</h1>
     <Preview ref={previewRef} />
   </main>
 ), document.body)

@@ -4,7 +4,7 @@
   "description": "react components for generating input props for react components",
   "main": "index.js",
   "scripts": {
-    "start": "budo example/index.js --live -- -t [ babelify --presets [ @babel/preset-env @babel/preset-react ] ]"
+    "start": "budo example/index.js --live -- -g browserify-css -t [ babelify --presets [ @babel/preset-env @babel/preset-react ] ]"
   },
   "author": "",
   "license": "MIT",
@@ -13,6 +13,7 @@
     "@babel/preset-env": "^7.2.0",
     "@babel/preset-react": "^7.0.0",
     "babelify": "^10.0.0",
+    "browserify-css": "^0.14.0",
     "budo": "^11.5.0",
     "react-dom": "^16.6.3"
   },
