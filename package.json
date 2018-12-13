@@ -1,13 +1,13 @@
 {
-  "name": "react-builder",
-  "version": "1.0.0",
-  "description": "",
+  "name": "react-props-builder",
+  "version": "0.1.0",
+  "description": "react components for generating input props for react components",
   "main": "index.js",
   "scripts": {
     "start": "budo example/index.js --live -- -t [ babelify --presets [ @babel/preset-env @babel/preset-react ] ]"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.2.0",
     "@babel/preset-env": "^7.2.0",
