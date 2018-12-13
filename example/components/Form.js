@@ -4,7 +4,8 @@ const Widgets = require('../widgets')
 
 const Form = ({ action, children }) => (
   <form action={action}>
-    {children}
+    <p>{children}</p>
+    <button>Submit</button>
   </form>
 )
 
@@ -15,7 +16,7 @@ Form.propTypes = {
 
 Form.Widgets = {
   action: Widgets.InputWidget,
-  children: Widgets.TreeEditor
+  text: Widgets.InputWidget
 }
 
 export default Form

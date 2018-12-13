@@ -16,9 +16,23 @@ Section.propTypes = {
   children: PropTypes.node
 }
 
+const Form = require('./Form').default
+class TreeEditorWithForm extends Widgets.TreeEditor {
+  constructor (props) {
+    super(props)
+  }
+  render () {
+    return (
+      <Widgets.TreeEditor {...this.props} onLoad={({ appendNode }) => {
+        appendNode(Form)
+      }} />
+    )
+  }
+}
+
 Section.Widgets = {
   title: Widgets.InputWidget,
-  children: Widgets.InputWidget
+  children: TreeEditorWithForm
 }
 
 export default Section

@@ -18,13 +18,14 @@ class TreeEditor extends React.Component {
   handleChange () {
     if (this.props.onChange) this.props.onChange(this.getState())
   }
-  render (props) {
+  render () {
     return (
-      <section className='tree-editor'>
+      <fieldset className='tree-editor'>
+        <legend>{this.props.label || `Editor`}</legend>
         <div className='nodes'>
           {this.nodes}
         </div>
-      </section>
+      </fieldset>
     )
   }
 }
@@ -37,7 +38,7 @@ class NodeEditor extends React.Component {
     this.handleChange = this.handleChange.bind(this)
 
     this.widgets = objectMap(this.type.Widgets, (Widget, label) => {
-      return (<Widget label={label} type={this.type} ref={React.createRef()} onChange={this.handleChange} />)
+      return (<Widget label={toTitleCase(label || ``)} type={this.type} ref={React.createRef()} onChange={this.handleChange} />)
     })
   }
   getState () {
@@ -52,14 +53,19 @@ class NodeEditor extends React.Component {
   }
   render () {
     return (
-      <div className='node-editor'>
+      <fieldset className='node-editor'>
+        <legend>{toTitleCase((this.props.type || {}).name) || `Node`}</legend>
         {Object.values(this.widgets)}
-      </div>
+      </fieldset>
     )
   }
 }
 
 module.exports = TreeEditor
+
+function toTitleCase (str) {
+  return str.replace(/\w\S*/g, txt => txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase())
+}
 
 function objectMap (object, mapFn) {
   return Object.keys(object).reduce(function (result, key) {

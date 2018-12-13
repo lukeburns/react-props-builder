@@ -1,17 +1,24 @@
 const React = require('react')
 const TreeEditor = require('../')
-const Preview = require('./Preview')
+const Preview = require('./Preview').default
 const { Section, Form } = require('./components')
 const { render } = require('react-dom')
-const { renderToStaticMarkup } = require('react-dom/server')
 
+const previewRef = React.createRef()
 render((
-  <TreeEditor
-    onLoad={({ appendNode, getState }) => {
-      appendNode(Section)
-    }}
-    onChange={state => {
-      console.log(renderToStaticMarkup(state[0].component(state[0].props)))
-    }}
+  <main>
+    <TreeEditor
+      onLoad={({ appendNode, getState }) => {
+        appendNode(Section)
+        appendNode(Form)
+      }}
+      onChange={state => {
+        console.log(state)
+        previewRef.current.set(state.map(node => node.component(node.props)))
+      }}
     />
+    <hr />
+    <h1>Preview:</h1>
+    <Preview ref={previewRef} />
+  </main>
 ), document.body)
