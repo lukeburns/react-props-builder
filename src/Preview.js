@@ -18,4 +18,4 @@ class Preview extends React.Component {
   }
 }
 
-export default Preview
+module.exports = Preview

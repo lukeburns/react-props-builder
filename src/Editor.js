@@ -1,6 +1,6 @@
 const React = require('react')
-const TreeEditor = require('../')
-const Preview = require('./Preview').default
+const TreeEditor = require('./TreeEditor')
+const Preview = require('./Preview')
 
 const Editor = ({ types }, ref) => {
   const previewRef = React.createRef()

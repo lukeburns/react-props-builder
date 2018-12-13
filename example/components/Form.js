@@ -1,11 +1,11 @@
 import PropTypes from 'prop-types'
-import Section from './Section'
-import Input from './Input'
-import TextArea from './TextArea'
 
 const React = require('react')
-const Widgets = require('../widgets')
-const TreeEditor = require('../../')
+const Input = require('./Input')
+const TextArea = require('./TextArea')
+const Section = require('./Section')
+const { InputWidget } = require('../widgets')
+const { TreeEditor, withProps } = require('../../')
 
 const Form = ({ action, children }) => (
   <form action={action}>
@@ -21,10 +21,9 @@ Form.propTypes = {
   children: PropTypes.node
 }
 
-const withProps = TreeEditor.withProps
 Form.Widgets = {
-  action: Widgets.InputWidget,
-  children: withProps(TreeEditor, { types: [Section, Input, TextArea]})
+  action: InputWidget,
+  children: withProps(TreeEditor, { types: [Input, TextArea]})
 }
 
-export default Form
+module.exports = Form

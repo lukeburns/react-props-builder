@@ -1,5 +1,6 @@
 module.exports = {
-  Section: require('./Section').default,
-  Form: require('./Form').default,
-  Input: require('./Input').default
+  Section: require('./Section'),
+  Form: require('./Form'),
+  Input: require('./Input'),
+  TextArea: require('./TextArea')
 }

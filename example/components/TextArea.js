@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types'
+
 const React = require('react')
 const Widgets = require('../widgets')
 
@@ -16,4 +17,4 @@ TextArea.Widgets = {
   name: Widgets.InputWidget
 }
 
-export default TextArea
+module.exports = TextArea
