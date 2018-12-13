@@ -1,6 +1,10 @@
 import PropTypes from 'prop-types'
+import Form from './Form'
+import Input from './Input'
+
 const React = require('react')
 const Widgets = require('../widgets')
+const TreeEditor = require('../../')
 
 const Title = ({ title }) => <h1>{title}</h1>
 
@@ -16,30 +20,10 @@ Section.propTypes = {
   children: PropTypes.node
 }
 
-const Form = require('./Form').default
-
-const withProps = (Wrapped, preset) => {
-  class Wrapper extends React.Component {
-    constructor (props) {
-      super(props)
-      this.getState = this.getState.bind(this)
-      this.childRef = React.createRef()
-    }
-    getState () {
-      return this.childRef.current.getState()
-    }
-    render () {
-      return (
-        <Wrapped {...preset} {...this.props} ref={this.childRef} />
-      )
-    }
-  }
-  return Wrapper
-} // withOnLoad() won't work because NodeEditor uses refs to getState from its children and withOnLoad doesn't have a getState method. Is there a smarter way to retrieve state?
-
+const withProps = TreeEditor.withProps
 Section.Widgets = {
   title: Widgets.InputWidget,
-  children: withProps(Widgets.TreeEditor, { types: [Section, Form]})
+  children: withProps(TreeEditor, { types: [Section, Form]})
 }
 
 export default Section

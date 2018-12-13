@@ -8,6 +8,20 @@ class TreeEditor extends React.Component {
     this.handleChange = this.handleChange.bind(this)
     if (typeof props.onLoad === 'function') props.onLoad({ appendNode: this.appendNode.bind(this), getState: this.getState.bind(this) })
   }
+  removeNode (node) {
+    const i = this.nodes.indexOf(node)
+    if (i > -1) {
+      this.nodes.splice(i, 1)
+      this.forceUpdate()
+    }
+  }
+  moveNode (node, i) {
+    const old = this.nodes.indexOf(node)
+    if (old > -1) {
+      array_move(this.nodes, old, i)
+      this.forceUpdate()
+    }
+  }
   appendNode (node) {
     if (node.Widgets) {
       this.nodes.push((<NodeEditor type={node} ref={React.createRef()} onChange={this.handleChange} />))
@@ -28,9 +42,9 @@ class TreeEditor extends React.Component {
       <fieldset className='tree-editor'>
         <legend>{this.props.label || `Editor`}</legend>
         <div className='palette'>
-          {this.types.map(type => (
-            <button onClick={this.appendNode.bind(this, type)}>Add {type.name}</button>
-          ))}
+          {this.types.map(type => type ? (
+            <button onClick={this.appendNode.bind(this, type)}>Add {type.name || type.toString()}</button>
+          ) : ``)}
         </div>
         <div className='nodes'>
           {this.nodes}
@@ -73,6 +87,25 @@ class NodeEditor extends React.Component {
   }
 }
 
+TreeEditor.withProps = (Wrapped, preset) => {
+  class Wrapper extends React.Component {
+    constructor (props) {
+      super(props)
+      this.getState = this.getState.bind(this)
+      this.childRef = React.createRef()
+    }
+    getState () {
+      return this.childRef.current.getState()
+    }
+    render () {
+      return (
+        <Wrapped {...preset} {...this.props} ref={this.childRef} />
+      )
+    }
+  }
+  return Wrapper
+}
+
 module.exports = TreeEditor
 
 function toTitleCase (str) {
@@ -85,3 +118,14 @@ function objectMap (object, mapFn) {
     return result
   }, {})
 }
+
+function array_move (arr, old_index, new_index) {
+  if (new_index >= arr.length) {
+    var k = new_index - arr.length + 1
+    while (k--) {
+      arr.push(undefined)
+    }
+  }
+  arr.splice(new_index, 0, arr.splice(old_index, 1)[0])
+  return arr // for testing
+};

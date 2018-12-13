@@ -1,11 +1,18 @@
 import PropTypes from 'prop-types'
+import Section from './Section'
+import Input from './Input'
+import TextArea from './TextArea'
+
 const React = require('react')
 const Widgets = require('../widgets')
+const TreeEditor = require('../../')
 
 const Form = ({ action, children }) => (
   <form action={action}>
-    <p>{children}</p>
-    <button>Submit</button>
+    <fieldset>
+      {children.map(child => <div>{child}</div>)}
+      <button>Submit</button>
+    </fieldset>
   </form>
 )
 
@@ -14,9 +21,10 @@ Form.propTypes = {
   children: PropTypes.node
 }
 
+const withProps = TreeEditor.withProps
 Form.Widgets = {
   action: Widgets.InputWidget,
-  children: Widgets.TextAreaWidget
+  children: withProps(TreeEditor, { types: [Section, Input, TextArea]})
 }
 
 export default Form

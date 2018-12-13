@@ -3,13 +3,15 @@ const TreeEditor = require('../')
 const Preview = require('./Preview').default
 const { Section, Form } = require('./components')
 const { render } = require('react-dom')
-
 import './style.css'
+
+window.ref = React.createRef()
 
 const previewRef = React.createRef()
 render((
   <main>
     <TreeEditor
+      ref={window.ref}
       types={[Section, Form]}
       onChange={state => {
         previewRef.current.set(run(state))
