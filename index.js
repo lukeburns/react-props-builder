@@ -3,6 +3,7 @@ const React = require('react')
 class TreeEditor extends React.Component {
   constructor (props) {
     super(props)
+    this.types = props.types || []
     this.nodes = props.nodes || []
     this.handleChange = this.handleChange.bind(this)
     if (typeof props.onLoad === 'function') props.onLoad({ appendNode: this.appendNode.bind(this), getState: this.getState.bind(this) })
@@ -10,6 +11,7 @@ class TreeEditor extends React.Component {
   appendNode (node) {
     if (node.Widgets) {
       this.nodes.push((<NodeEditor type={node} ref={React.createRef()} onChange={this.handleChange} />))
+      this.forceUpdate()
     }
   }
   getState () {
@@ -25,6 +27,11 @@ class TreeEditor extends React.Component {
     return (
       <fieldset className='tree-editor'>
         <legend>{this.props.label || `Editor`}</legend>
+        <div className='palette'>
+          {this.types.map(type => (
+            <button onClick={this.appendNode.bind(this, type)}>Add {type.name}</button>
+          ))}
+        </div>
         <div className='nodes'>
           {this.nodes}
         </div>

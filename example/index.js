@@ -10,10 +10,7 @@ const previewRef = React.createRef()
 render((
   <main>
     <TreeEditor
-      onLoad={({ appendNode, getState }) => {
-        appendNode(Section)
-        appendNode(Form)
-      }}
+      types={[Section, Form]}
       onChange={state => {
         previewRef.current.set(run(state))
       }}
