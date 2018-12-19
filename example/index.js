@@ -10,30 +10,23 @@ const props = {
   title: 'beep boop'
 }
 
-render(Editor({
-  types: { Section, Form },
-  updatePreview: state => {
+render(<Editor
+  export={handleExport}
+  types={{ Section, Form }}
+  updatePreview={children => {
     const packed = pack(<main>
-      {toChildren(state)}
+      {children}
     </main>)
     const Unpacked = unpack(packed, { Title: Section.Title })
-
     return <main>
       <pre>{packed}</pre>
       <pre>{Unpacked(props)}</pre>
     </main>
-  }
-}), document.body)
+  }} />, document.body)
 
-function toChildren (nodes = []) {
-  return nodes.map(node => {
-    return node.component(objectMap(node.props, prop => prop instanceof Array ? toChildren(prop) : prop))
-  })
-}
-
-function objectMap (object, mapFn) {
-  return Object.keys(object).reduce(function (result, key) {
-    result[key] = mapFn(object[key], key)
-    return result
-  }, {})
+function handleExport (children) {
+  const packed = pack(<main>
+    {children}
+  </main>)
+  console.log(packed)
 }

@@ -7,7 +7,10 @@ class TreeEditor extends React.Component {
     this.types = props.types || {}
     this.nodes = props.nodes || []
     this.handleChange = this.handleChange.bind(this)
-    if (typeof props.onLoad === 'function') props.onLoad({ appendNode: this.appendNode.bind(this), getState: this.getState.bind(this) })
+    this.componentDidMount = this.componentDidMount.bind(this)
+  }
+  componentDidMount () {
+    if (typeof this.props.onLoad === 'function') this.props.onLoad({ appendNode: this.appendNode.bind(this), getState: this.getState.bind(this) })
   }
   removeNode (node) {
     const i = this.nodes.indexOf(node)
@@ -23,9 +26,9 @@ class TreeEditor extends React.Component {
       this.forceUpdate()
     }
   }
-  appendNode (node) {
-    if (node[1].Widgets) {
-      this.nodes.push((<NodeEditor type={node} ref={React.createRef()} onChange={this.handleChange} />))
+  appendNode (label, builder) {
+    if (builder.Widgets) {
+      this.nodes.push((<NodeEditor label={label} builder={builder} ref={React.createRef()} onChange={this.handleChange} />))
       this.forceUpdate()
     }
   }
@@ -42,13 +45,14 @@ class TreeEditor extends React.Component {
       <fieldset className='tree-editor'>
         <legend>{this.props.label || `Editor`}</legend>
         <div className='palette'>
-          {Object.keys(this.types).map(type => (
-            <button onClick={this.appendNode.bind(this, [type, this.types[type]])}>Add {type}</button>
+          {Object.keys(this.types).map(label => (
+            <button onClick={this.appendNode.bind(this, label, this.types[label])}>Add {label}</button>
           ))}
         </div>
         <div className='nodes'>
           {this.nodes}
         </div>
+        {this.props.export ? <button onClick={() => this.props.export.call(this, this.getState())}>Export</button> : ``}
       </fieldset>
     )
   }
