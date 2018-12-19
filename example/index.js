@@ -11,18 +11,20 @@ const props = {
 }
 
 render(<Editor
+  builders={{ Section, Form }}
   export={handleExport}
-  types={{ Section, Form }}
-  updatePreview={children => {
-    const packed = pack(<main>
-      {children}
-    </main>)
-    const Unpacked = unpack(packed, { Title: Section.Title })
-    return <main>
-      <pre>{packed}</pre>
-      <pre>{Unpacked(props)}</pre>
-    </main>
-  }} />, document.body)
+  update={handleUpdate} />, document.body)
+
+function handleUpdate (children) {
+  const packed = pack(<main>
+    {children}
+  </main>)
+  const Unpacked = unpack(packed, { Title: Section.Title })
+  return <main>
+    <pre>{packed}</pre>
+    <pre>{Unpacked(props)}</pre>
+  </main>
+}
 
 function handleExport (children) {
   const packed = pack(<main>

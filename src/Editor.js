@@ -14,17 +14,17 @@ class Editor extends React.Component {
     }
   }
   render () {
-    let { types, onChange = () => {}, updatePreview = () => {} } = this.props
+    let { builders, onChange = () => {}, update = () => {} } = this.props
     return (
       <main>
         <TreeEditor
           export={this.props.export}
           ref={this.treeRef}
-          types={types}
+          types={builders}
           onChange={state => {
             onChange(state)
             this.previewRef.current.set(
-              updatePreview(state)
+              update(state)
             )
           }}
         />
