@@ -2,5 +2,7 @@ module.exports = {
   Section: require('./Section'),
   Form: require('./Form'),
   Input: require('./Input'),
-  TextArea: require('./TextArea')
+  Checkbox: require('./Checkbox'),
+  TextArea: require('./TextArea'),
+  Dropdown: require('./Dropdown')
 }

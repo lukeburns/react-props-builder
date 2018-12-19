@@ -3,7 +3,8 @@ import PropTypes from 'prop-types'
 const React = require('react')
 const Input = require('./Input')
 const TextArea = require('./TextArea')
-const Section = require('./Section')
+const Checkbox = require('./Checkbox')
+const Dropdown = require('./Dropdown')
 const { InputWidget } = require('../widgets')
 const { TreeEditor, withProps } = require('../../')
 
@@ -23,7 +24,7 @@ Form.propTypes = {
 
 Form.Widgets = {
   action: InputWidget,
-  children: withProps(TreeEditor, { types: {Input, TextArea} })
+  children: withProps(TreeEditor, { types: { Input, TextArea, Checkbox, Dropdown } })
 }
 
 module.exports = Form
