@@ -19,3 +19,7 @@ const SectionBuilder = ({ id, title, children }) => (
 
 render(<Editor types={[SectionBuilder]} onChange={state => console.log(state)}/>), document.body)
 ```
+
+## Widget Implementation
+
+Widgets (1) need a `getState` method which returns the state and (2) need to call `props.onChange` every time state changes.
