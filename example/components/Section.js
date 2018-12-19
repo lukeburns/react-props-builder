@@ -20,7 +20,7 @@ Section.propTypes = {
 
 Section.Widgets = {
   title: Widgets.InputWidget,
-  children: withProps(TreeEditor, { types: {Section, Form}})
+  children: withProps(TreeEditor, { types: { Section, Form } })
 }
 
 Section.Title = Title
