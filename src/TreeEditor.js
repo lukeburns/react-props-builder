@@ -4,7 +4,7 @@ const NodeEditor = require('./NodeEditor')
 class TreeEditor extends React.Component {
   constructor (props) {
     super(props)
-    this.types = props.types || []
+    this.types = props.types || {}
     this.nodes = props.nodes || []
     this.handleChange = this.handleChange.bind(this)
     if (typeof props.onLoad === 'function') props.onLoad({ appendNode: this.appendNode.bind(this), getState: this.getState.bind(this) })
@@ -24,14 +24,13 @@ class TreeEditor extends React.Component {
     }
   }
   appendNode (node) {
-    if (node.Widgets) {
+    if (node[1].Widgets) {
       this.nodes.push((<NodeEditor type={node} ref={React.createRef()} onChange={this.handleChange} />))
       this.forceUpdate()
     }
   }
   getState () {
-    let state = this.nodes.map(node => (node.ref && node.ref.current) ? node.ref.current.getState() : null)
-    return state
+    return this.nodes.map(node => (node.ref && node.ref.current) ? node.ref.current.getState() : null)
   }
   handleChange () {
     if (this.props.onChange) {
@@ -43,9 +42,9 @@ class TreeEditor extends React.Component {
       <fieldset className='tree-editor'>
         <legend>{this.props.label || `Editor`}</legend>
         <div className='palette'>
-          {this.types.map(type => type ? (
-            <button onClick={this.appendNode.bind(this, type)}>Add {type.name || type.toString()}</button>
-          ) : ``)}
+          {Object.keys(this.types).map(type => (
+            <button onClick={this.appendNode.bind(this, [type, this.types[type]])}>Add {type}</button>
+          ))}
         </div>
         <div className='nodes'>
           {this.nodes}

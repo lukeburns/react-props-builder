@@ -23,7 +23,7 @@ Form.propTypes = {
 
 Form.Widgets = {
   action: InputWidget,
-  children: withProps(TreeEditor, { types: [Input, TextArea]})
+  children: withProps(TreeEditor, { types: {Input, TextArea} })
 }
 
 module.exports = Form

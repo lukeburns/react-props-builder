@@ -3,20 +3,21 @@ const React = require('react')
 class NodeEditor extends React.Component {
   constructor (props) {
     super(props)
-    this.type = this.props.type
+    this.name = this.props.type[0]
+    this.component = this.props.type[1]
     this.getState = this.getState.bind(this)
     this.handleChange = this.handleChange.bind(this)
 
-    this.widgets = objectMap(this.type.Widgets, (Widget, label) => {
-      return (<Widget label={toTitleCase(label || ``)} type={this.type} ref={React.createRef()} onChange={this.handleChange} />)
+    this.widgets = objectMap(this.component.Widgets, (Widget, label) => {
+      return (<Widget label={toTitleCase(label || ``)} type={this.component} ref={React.createRef()} onChange={this.handleChange} />)
     })
   }
   getState () {
-    const keys = Object.keys(this.type.Widgets)
+    const keys = Object.keys(this.component.Widgets)
     const props = objectMap(this.widgets, widget => {
       return (widget.ref && widget.ref.current) ? widget.ref.current.getState() : null
     })
-    return { component: this.type, props }
+    return { component: this.component, props }
   }
   handleChange () {
     if (typeof this.props.onChange === 'function') {
@@ -26,7 +27,7 @@ class NodeEditor extends React.Component {
   render () {
     return (
       <fieldset className='node-editor'>
-        <legend>{toTitleCase((this.props.type || {}).name) || `Node`}</legend>
+        <legend>{toTitleCase(this.name) || `Node`}</legend>
         {Object.values(this.widgets)}
       </fieldset>
     )
