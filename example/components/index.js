@@ -3,5 +3,6 @@ module.exports = {
   Form: require('./Form'),
   Input: require('./Input'),
   Checkbox: require('./Checkbox'),
-  TextArea: require('./TextArea')
+  TextArea: require('./TextArea'),
+  Dropdown: require('./Dropdown')
 }
