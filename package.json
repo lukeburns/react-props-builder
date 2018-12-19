@@ -21,6 +21,6 @@
     "esprima": "^4.0.1",
     "prop-types": "^15.6.2",
     "react": "^16.6.3",
-    "react-pack-unpack": "github:ibrand/react-pack-unpack"
+    "react-pack-unpack": "^0.1.0"
   }
 }
