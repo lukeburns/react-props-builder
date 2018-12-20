@@ -1,6 +1,6 @@
 const React = require('react')
 
-class InputWidget extends React.Component {
+class TextAreaWidget extends React.Component {
   constructor (props) {
     super(props)
     this.state = { value: '' }
@@ -23,4 +23,4 @@ class InputWidget extends React.Component {
   }
 }
 
-export default InputWidget
+export default TextAreaWidget

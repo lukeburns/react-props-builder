@@ -1,7 +1,7 @@
 {
-  "name": "react-props-builder",
+  "name": "component-editor",
   "version": "0.1.0",
-  "description": "react components for generating input props for react components",
+  "description": "a react component that exposes a graphical interface for building react components from a palette of react components",
   "main": "index.js",
   "scripts": {
     "start": "budo example/index.js --live -- -g browserify-css -t [ babelify --presets [ @babel/preset-env @babel/preset-react ] ]"
@@ -15,11 +15,11 @@
     "babelify": "^10.0.0",
     "browserify-css": "^0.14.0",
     "budo": "^11.5.0",
-    "react-dom": "^16.6.3"
+    "react-dom": "^16.6.3",
+    "prop-types": "^15.6.2",
+    "react-pack-unpack": "^0.1.0"
   },
   "dependencies": {
-    "prop-types": "^15.6.2",
-    "react": "^16.6.3",
-    "react-pack-unpack": "^0.1.0"
+    "react": "^16.6.3"
   }
 }
