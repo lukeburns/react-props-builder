@@ -35,3 +35,32 @@ input, textarea {
 main > .tree-editor, .preview {
   width: 45vw;
 }
+
+.RichEditor-root {
+  display: flex;
+  flex-wrap: wrap;
+}
+.RichEditor-controlContainer {
+  width: 100%;
+  display: flex;
+  padding-top: 10px;
+}
+.RichEditor-styleButton {
+  border: 1px solid black;
+  padding:5px;
+  margin-right:4px;
+  background-color:white;
+  color:black;
+  cursor: pointer;
+}
+.RichEditor-activeButton {
+  border: 1px solid black;
+  padding:5px;
+  margin-right:4px;
+  background-color:black;
+  color:white;
+  cursor: pointer;
+}
+.public-DraftEditorPlaceholder-inner, .public-DraftStyleDefault-block {
+  padding-top: 20px;
+}

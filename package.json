@@ -20,10 +20,12 @@
     "browserify-css": "^0.14.0",
     "budo": "^11.5.0",
     "react-dom": "^16.6.3",
-    "prop-types": "^15.6.2",
-    "react-pack-unpack": "^0.1.0"
+    "prop-types": "^15.6.2"
   },
   "dependencies": {
-    "react": "^16.6.3"
+    "draft-convert": "^2.1.4",
+    "draft-js": "^0.10.5",
+    "react": "^16.6.3",
+    "react-pack-unpack": "^0.1.0"
   }
 }

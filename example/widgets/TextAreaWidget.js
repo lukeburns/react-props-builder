@@ -10,7 +10,7 @@ class TextAreaWidget extends React.Component {
     return this.state.value
   }
   handleChange (event) {
-    this.setState({value: event.target.value}, function () {
+    this.setState({ value: event.target.value }, function () {
       if (this.props.onChange) {
         this.props.onChange(this.getState())
       }

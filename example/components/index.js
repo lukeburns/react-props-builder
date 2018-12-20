@@ -4,5 +4,6 @@ module.exports = {
   Input: require('./Input'),
   Checkbox: require('./Checkbox'),
   TextArea: require('./TextArea'),
-  Dropdown: require('./Dropdown')
+  Dropdown: require('./Dropdown'),
+  Description: require('./Description')
 }
