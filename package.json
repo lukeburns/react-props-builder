@@ -6,7 +6,10 @@
   "scripts": {
     "start": "budo example/index.js --live -- -g browserify-css -t [ babelify --presets [ @babel/preset-env @babel/preset-react ] ]"
   },
-  "author": "",
+  "author": "Luke Burns <lukemburns@gmail.com",
+  "contributors": [
+    "Ilona Brand <theilonabrand@gmail.com>"
+  ],
   "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.2.0",
