@@ -1,0 +1,37 @@
+body {
+  font-size: 1.2em;
+}
+
+body > main {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+fieldset, .preview {
+  border: 1px solid rgba(0, 0, 0, .07);
+  border-radius: 5px;
+}
+
+.preview {
+  margin-top: 11px;
+  padding: 0.25em 0.5em;
+}
+
+input, textarea {
+  border: 1px solid rgba(0, 0, 0, .14);
+  font-size: 0.66em;
+  padding: 5px;
+  margin: 5px;
+}
+
+fieldset textarea {
+  min-height: 100px;
+}
+
+input, textarea {
+  min-width: 45%;
+}
+
+main > .tree-editor, .preview {
+  width: 45vw;
+}

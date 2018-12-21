@@ -6,6 +6,7 @@ class TreeEditor extends React.Component {
     super(props)
     this.types = props.types || {}
     this.nodes = props.nodes || []
+    this.getState = this.getState.bind(this)
     this.handleChange = this.handleChange.bind(this)
     this.componentDidMount = this.componentDidMount.bind(this)
   }
@@ -33,7 +34,8 @@ class TreeEditor extends React.Component {
     }
   }
   getState () {
-    return this.nodes.map(node => (node.ref && node.ref.current) ? node.ref.current.getState() : null)
+    const { hook = x => x } = this.props
+    return hook(this.nodes.map(node => (node.ref && node.ref.current) ? node.ref.current.getState() : null))
   }
   handleChange () {
     if (this.props.onChange) {
