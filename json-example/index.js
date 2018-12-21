@@ -6,10 +6,6 @@ const { Obj, Arr } = require('./ObjArr')
 const { render } = require('react-dom')
 const { pack, unpack } = require('react-pack-unpack')
 
-const props = {
-  title: 'beep boop'
-}
-
 render(<Editor
   builders={{ 'Array': Arr, 'Object': Obj }}
   export={handleExport}

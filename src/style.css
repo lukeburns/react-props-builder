@@ -7,3 +7,13 @@
 .tree-editor.bare > legend {
   display: none;
 }
+
+.nodes .node {
+  position: relative;
+}
+
+.nodes .node .remove {
+  position: absolute;
+  top: 13px;
+  right: 4px;
+}

@@ -13,15 +13,21 @@ class TreeEditor extends React.Component {
     this.componentDidMount = this.componentDidMount.bind(this)
   }
   componentDidMount () {
-    if (typeof this.props.onLoad === 'function') this.props.onLoad({ appendNode: this.appendNode.bind(this), getState: this.getState.bind(this) })
+    if (typeof this.props.onLoad === 'function') {
+      this.props.onLoad({
+        appendNode: this.appendNode.bind(this),
+        getState: this.getState.bind(this)
+      })
+    }
   }
-  // removeNode (node) {
-  //   const i = this.nodes.indexOf(node)
-  //   if (i > -1) {
-  //     this.nodes.splice(i, 1)
-  //     this.forceUpdate()
-  //   }
-  // }
+  removeNode (node) {
+    const i = this.nodes.indexOf(node)
+    if (i > -1) {
+      this.nodes.splice(i, 1)
+      this.handleChange()
+      this.forceUpdate()
+    }
+  }
   // moveNode (node, i) {
   //   const old = this.nodes.indexOf(node)
   //   if (old > -1) {
@@ -54,7 +60,12 @@ class TreeEditor extends React.Component {
           ))}
         </div>
         <div className='nodes'>
-          {this.nodes}
+          {this.nodes.map(node => (
+            <div className='node'>
+              {node}
+              <button className='remove' onClick={this.removeNode.bind(this, node)}>×</button>
+            </div>
+          ))}
         </div>
         {this.props.export ? <button onClick={() => this.props.export.call(this, this.getState())}>Export</button> : ``}
       </fieldset>
