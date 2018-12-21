@@ -1,0 +1,9 @@
+.tree-editor.bare {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.tree-editor.bare > legend {
+  display: none;
+}

@@ -1,6 +1,8 @@
 const React = require('react')
 const NodeEditor = require('./NodeEditor')
 
+import './style.css'
+
 class TreeEditor extends React.Component {
   constructor (props) {
     super(props)
@@ -44,7 +46,7 @@ class TreeEditor extends React.Component {
   }
   render () {
     return (
-      <fieldset className='tree-editor'>
+      <fieldset className={'tree-editor' + (this.props.bare ? ' bare' : '')}>
         <legend>{this.props.label || `Editor`}</legend>
         <div className='palette'>
           {Object.keys(this.types).map(label => (

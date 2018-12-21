@@ -7,7 +7,8 @@ const WidgetSelector = require('./WidgetSelector')
 const ArrElement = ({ element }) => element
 
 const ArrWidget = withProps(TreeEditor, {
-  types: { Element: ArrElement }
+  types: { Element: ArrElement },
+  bare: true
 })
 
 const Arr = ({ array }) => array
@@ -28,7 +29,8 @@ const ObjWidget = withProps(TreeEditor, {
   hook: elements => elements.reduce(function (obj, next) {
     obj[next.key] = next.value
     return obj
-  }, {})
+  }, {}),
+  bare: true
 })
 
 const Obj = ({ object }) => object
