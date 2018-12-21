@@ -14,7 +14,7 @@ class Editor extends React.Component {
     }
   }
   render () {
-    let { builders, onChange = () => {}, update = () => {} } = this.props
+    let { builders = {}, onChange = () => {}, update = () => {} } = this.props
     return (
       <main>
         <TreeEditor

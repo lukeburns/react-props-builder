@@ -12,20 +12,20 @@ class TreeEditor extends React.Component {
   componentDidMount () {
     if (typeof this.props.onLoad === 'function') this.props.onLoad({ appendNode: this.appendNode.bind(this), getState: this.getState.bind(this) })
   }
-  removeNode (node) {
-    const i = this.nodes.indexOf(node)
-    if (i > -1) {
-      this.nodes.splice(i, 1)
-      this.forceUpdate()
-    }
-  }
-  moveNode (node, i) {
-    const old = this.nodes.indexOf(node)
-    if (old > -1) {
-      array_move(this.nodes, old, i)
-      this.forceUpdate()
-    }
-  }
+  // removeNode (node) {
+  //   const i = this.nodes.indexOf(node)
+  //   if (i > -1) {
+  //     this.nodes.splice(i, 1)
+  //     this.forceUpdate()
+  //   }
+  // }
+  // moveNode (node, i) {
+  //   const old = this.nodes.indexOf(node)
+  //   if (old > -1) {
+  //     array_move(this.nodes, old, i)
+  //     this.forceUpdate()
+  //   }
+  // }
   appendNode (label, builder) {
     if (builder.Widgets) {
       this.nodes.push((<NodeEditor label={label} builder={builder} ref={React.createRef()} onChange={this.handleChange} />))
