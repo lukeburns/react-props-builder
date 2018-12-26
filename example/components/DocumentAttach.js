@@ -4,8 +4,8 @@ const React = require('react')
 const Widgets = require('../widgets')
 
 const DocumentAttach = ({ label }) => (
-  <div>
-    <input type='DocumentAttach' /> { label }
+  <div class='download-box'>
+    Click to download: { label.name }
   </div>
 )
 

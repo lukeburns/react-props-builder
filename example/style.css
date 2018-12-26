@@ -64,3 +64,9 @@ main > .tree-editor, .preview {
 .public-DraftEditorPlaceholder-inner, .public-DraftStyleDefault-block {
   padding-top: 20px;
 }
+
+.download-box {
+  border: 1px solid black;
+  padding: 10px;
+  display: inline-block;
+}
