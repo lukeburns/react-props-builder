@@ -10,10 +10,13 @@ const props = {
   title: 'beep boop'
 }
 
+const editor = React.createRef()
 render(<Editor
+  ref={editor}
   builders={{ Section, Form }}
-  export={handleExport}
-  update={handleUpdate} />, document.body)
+  update={handleUpdate}>
+  <button onClick={() => handleExport(editor.current.getState())}>Save</button>
+</Editor>, document.body)
 
 function handleUpdate (children) {
   const packed = pack(<main>

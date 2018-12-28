@@ -67,7 +67,7 @@ class TreeEditor extends React.Component {
             </div>
           ))}
         </div>
-        {this.props.export ? <button onClick={() => this.props.export.call(this, this.getState())}>Export</button> : ``}
+        {this.props.children}
       </fieldset>
     )
   }
