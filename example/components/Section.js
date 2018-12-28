@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 const React = require('react')
 const Form = require('./Form')
 const Description = require('./Description')
+const DocumentAttach = require('./DocumentAttach')
 const Widgets = require('../widgets')
 const { TreeEditor, withProps } = require('../../')
 
@@ -21,7 +22,7 @@ Section.propTypes = {
 
 Section.Widgets = {
   title: Widgets.InputWidget,
-  children: withProps(TreeEditor, { types: { Section, Form, Description } })
+  children: withProps(TreeEditor, { types: { Section, Form, Description, DocumentAttach } })
 }
 
 Section.Title = Title
