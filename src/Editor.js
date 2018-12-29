@@ -14,7 +14,7 @@ class Editor extends React.Component {
     }
   }
   render () {
-    let { builders = {}, onChange = () => {}, update = () => {} } = this.props
+    let { builders = {}, onChange = () => {}, update } = this.props
     return (
       <main>
         <TreeEditor
@@ -23,12 +23,12 @@ class Editor extends React.Component {
           onChange={state => {
             onChange(state)
             this.previewRef.current.set(
-              update(state)
+              if (update) update(state)
             )
           }}>
           {this.props.children}
         </TreeEditor>
-        <Preview ref={this.previewRef} />
+        {update ? <Preview ref={this.previewRef} /> : ``}
       </main>
     )
   }
