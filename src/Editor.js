@@ -22,9 +22,9 @@ class Editor extends React.Component {
           types={builders}
           onChange={state => {
             onChange(state)
-            this.previewRef.current.set(
-              if (update) update(state)
-            )
+            if (update) {
+              this.previewRef.current.set(update(state))
+            }
           }}>
           {this.props.children}
         </TreeEditor>
