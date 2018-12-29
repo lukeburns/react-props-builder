@@ -1,11 +1,12 @@
 const React = require('react')
 
-const withProps = (Wrapped, presetProps) => {
+const withProps = (Wrapped, defaultProps) => {
   class Wrapper extends Wrapped {
     constructor (props) {
-      super(Object.assign({}, presetProps, props))
+      super(props)
     }
   }
+  Wrapper.defaultProps = defaultProps
   return Wrapper
 }
 
