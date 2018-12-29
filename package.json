@@ -26,6 +26,7 @@
     "draft-convert": "^2.1.4",
     "draft-js": "^0.10.5",
     "react": "^16.6.3",
+    "react-keyed-file-browser": "^1.4.3",
     "react-pack-unpack": "^0.1.0"
   }
 }

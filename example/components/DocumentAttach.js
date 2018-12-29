@@ -2,11 +2,14 @@ import PropTypes from 'prop-types'
 
 const React = require('react')
 const Widgets = require('../widgets')
+const { withProps } = require('../../')
 
 const DocumentAttach = ({ label }) => (
-  <div class='download-box'>
-    Click to download: { label.name }
-  </div>
+  label.map(document => {
+    return (<div class='download-box'>
+      Click to download: { document.key }
+    </div>)
+  })
 )
 
 DocumentAttach.propTypes = {
@@ -14,7 +17,20 @@ DocumentAttach.propTypes = {
 }
 
 DocumentAttach.Widgets = {
-  label: Widgets.DocumentAttachWidget
+  label: withProps(Widgets.DocumentAttachWidget, {
+    onUpload: (file, setFiles, getFiles) => {
+      setFiles([...getFiles(), file])
+    },
+    initState: (setFiles) => {
+      console.log(setFiles)
+      setFiles(
+        [{
+          'key': 'fakefile.png',
+          'size': 100
+        }]
+      )
+    }
+  })
 }
 
 module.exports = DocumentAttach
