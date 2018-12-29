@@ -7,10 +7,16 @@ class Editor extends React.Component {
     super(props)
     this.previewRef = React.createRef()
     this.treeRef = React.createRef()
+    this.update = this.update.bind(this)
   }
   getState () {
     if (this.treeRef.current) {
       return this.treeRef.current.getState()
+    }
+  }
+  update () {
+    if (this.props.update) {
+      this.previewRef.current.set(this.props.update(this.getState()))
     }
   }
   render () {
