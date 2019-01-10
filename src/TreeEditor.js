@@ -45,6 +45,10 @@ class TreeEditor extends React.Component {
     const { hook = x => x } = this.props
     return hook(this.nodes.map(node => (node.ref && node.ref.current) ? node.ref.current.getState() : null))
   }
+  getData () {
+    const { hook = x => x } = this.props
+    return hook(this.nodes.map(node => (node.ref && node.ref.current) ? node.ref.current.getData() : null))
+  }
   handleChange () {
     if (this.props.onChange) {
       this.props.onChange(this.getState())

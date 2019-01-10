@@ -7,7 +7,6 @@ class NodeEditor extends React.Component {
     this.builder = this.props.builder
     this.getState = this.getState.bind(this)
     this.handleChange = this.handleChange.bind(this)
-
     this.widgets = objectMap(this.builder.Widgets, (Widget, label) => {
       return (<Widget label={toTitleCase(label || ``)} type={this.builder} ref={React.createRef()} onChange={this.handleChange} />)
     })
@@ -18,6 +17,12 @@ class NodeEditor extends React.Component {
       return (widget.ref && widget.ref.current) ? widget.ref.current.getState() : null
     })
     return this.builder(props)
+  }
+  getData () {
+    const props = objectMap(this.widgets, widget => {
+      return (widget.ref && widget.ref.current) ? widget.ref.current.getData() : null
+    })
+    return props
   }
   handleChange () {
     if (typeof this.props.onChange === 'function') {

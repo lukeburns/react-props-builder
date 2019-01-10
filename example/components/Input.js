@@ -3,8 +3,11 @@ import PropTypes from 'prop-types'
 const React = require('react')
 const Widgets = require('../widgets')
 
-const Input = ({ label, name }) => (
-  <input type='text' placeholder={label} name={name} />
+const Input = ({ label }) => (
+  <div>
+    { label }
+    <input type='text' name={label} />
+  </div>
 )
 
 Input.propTypes = {
@@ -13,8 +16,7 @@ Input.propTypes = {
 }
 
 Input.Widgets = {
-  label: Widgets.InputWidget,
-  name: Widgets.InputWidget
+  label: Widgets.InputWidget
 }
 
 module.exports = Input

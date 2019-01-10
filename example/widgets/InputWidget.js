@@ -9,6 +9,9 @@ class InputWidget extends React.Component {
   getState () {
     return this.state.value
   }
+  getData () {
+    return this.state.value
+  }
   handleChange (event) {
     this.setState({ value: event.target.value }, function () {
       if (this.props.onChange) {

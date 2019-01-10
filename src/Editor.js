@@ -14,6 +14,11 @@ class Editor extends React.Component {
       return this.treeRef.current.getState()
     }
   }
+  getData () {
+    if (this.treeRef.current) {
+      return this.treeRef.current.getData()
+    }
+  }
   update () {
     if (this.props.update) {
       this.previewRef.current.set(this.props.update(this.getState()))

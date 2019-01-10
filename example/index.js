@@ -15,7 +15,7 @@ render(<Editor
   ref={editor}
   builders={{ Section, Form }}
   update={handleUpdate}>
-  <button onClick={() => handleExport(editor.current.getState())}>Save</button>
+  <button onClick={() => handleExport(editor.current.getState(), editor.current.getData())}>Save</button>
 </Editor>, document.body)
 
 function handleUpdate (children) {
@@ -29,7 +29,8 @@ function handleUpdate (children) {
   </main>
 }
 
-function handleExport (children) {
+function handleExport (children, data) {
+  console.log('data ', data)
   const packed = pack(<main>
     {children}
   </main>)
