@@ -9,7 +9,7 @@ class NodeEditor extends React.Component {
     this.handleChange = this.handleChange.bind(this)
 
     this.widgets = objectMap(this.builder.Widgets, (Widget, label) => {
-      return (<Widget label={toTitleCase(label || ``)} type={this.builder} ref={React.createRef()} onChange={this.handleChange} />)
+      return (<Widget key={label} label={toTitleCase(label || ``)} type={this.builder} ref={React.createRef()} onChange={this.handleChange} />)
     })
   }
   getState () {

@@ -56,12 +56,12 @@ class TreeEditor extends React.Component {
         { this.props.label ? <legend>{this.props.label}</legend> : `` }
         { this.props.noPalette ? `` : <div className='palette'>
           {Object.keys(this.types).map(label => (
-            <button onClick={this.appendNode.bind(this, label, this.types[label])}>Add {label}</button>
+            <button key={label} onClick={this.appendNode.bind(this, label, this.types[label])}>Add {label}</button>
           ))}
         </div> }
         <div className='nodes'>
           {this.nodes.map(node => (
-            <div className='node'>
+            <div className='node' key={node.ref}>
               {node}
               <button className='remove' onClick={this.removeNode.bind(this, node)}>×</button>
             </div>
