@@ -12,17 +12,16 @@ class NodeEditor extends React.Component {
     })
   }
   getState () {
-    const keys = Object.keys(this.builder.Widgets)
     const props = objectMap(this.widgets, widget => {
       return (widget.ref && widget.ref.current) ? widget.ref.current.getState() : null
     })
     return this.builder(props)
   }
   getData () {
-    const props = objectMap(this.widgets, widget => {
+    const data = objectMap(this.widgets, widget => {
       return (widget.ref && widget.ref.current) ? widget.ref.current.getData() : null
     })
-    return props
+    return this.builder.getData ? this.builder.getData(data) : data
   }
   handleChange () {
     if (typeof this.props.onChange === 'function') {
