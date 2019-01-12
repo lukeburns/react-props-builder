@@ -20,13 +20,15 @@ class Editor extends React.Component {
     }
   }
   render () {
-    let { builders = {}, onChange = () => {}, update, label } = this.props
+    let { builders = {}, onChange = () => {}, update, label, onLoad, noPalette } = this.props
     return (
       <main>
         <TreeEditor
           label={label}
           ref={this.treeRef}
           types={builders}
+          noPalette={noPalette}
+          onLoad={onLoad}
           onChange={state => {
             onChange(state)
             if (update) {

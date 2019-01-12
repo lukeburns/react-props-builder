@@ -53,12 +53,12 @@ class TreeEditor extends React.Component {
   render () {
     return (
       <fieldset className={'tree-editor' + (this.props.bare ? ' bare' : '')}>
-        <legend>{this.props.label || `Editor`}</legend>
-        <div className='palette'>
+        { this.props.label ? <legend>{this.props.label}</legend> : `` }
+        { this.props.noPalette ? `` : <div className='palette'>
           {Object.keys(this.types).map(label => (
             <button onClick={this.appendNode.bind(this, label, this.types[label])}>Add {label}</button>
           ))}
-        </div>
+        </div> }
         <div className='nodes'>
           {this.nodes.map(node => (
             <div className='node'>

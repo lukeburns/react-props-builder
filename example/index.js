@@ -12,9 +12,10 @@ const props = {
 
 const editor = React.createRef()
 render(<Editor
-  label={`Example Editor`}
   ref={editor}
-  builders={{ Section, Form }}
+  builders={{ Form }}
+  noPalette={true}
+  onLoad={({ appendNode }) => appendNode('Form', Form)}
   update={handleUpdate}>
   <button onClick={() => handleExport(editor.current.getState())}>Save</button>
 </Editor>, document.body)
