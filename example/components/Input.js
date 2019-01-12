@@ -20,7 +20,7 @@ Input.Widgets = {
 }
 
 Input.getData = function ({ label }) {
-  return label
+  return { name: label } 
 }
 
 module.exports = Input

@@ -16,11 +16,10 @@ const { Editor } = require('component-editor')
 <Editor
   builders={builders}
   update={handleUpdate}
-  export={handleExport}
 />
 ```
 
-instantiates an editor with `builders` as a palette. `handleUpdate` allows you to control the editor preview, and `handleExport` let's you to manage export.
+instantiates an editor with `builders` as a palette. `handleUpdate` allows you to control the editor preview.
 
 run `npm start` and see the `example` directory for a working example that uses a number of builders and widgets.
 
