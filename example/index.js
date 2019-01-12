@@ -12,6 +12,7 @@ const props = {
 
 const editor = React.createRef()
 render(<Editor
+  label={`Example Editor`}
   ref={editor}
   builders={{ Section, Form }}
   update={handleUpdate}>

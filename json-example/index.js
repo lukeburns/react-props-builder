@@ -8,6 +8,7 @@ const { pack, unpack } = require('react-pack-unpack')
 
 let editor = React.createRef()
 render(<Editor
+  label={`JSON Editor`}
   ref={editor}
   builders={{ 'Array': Arr, 'Object': Obj }}
   update={handleUpdate}>
