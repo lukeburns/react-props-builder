@@ -19,4 +19,8 @@ Input.Widgets = {
   label: Widgets.InputWidget
 }
 
+Input.getData = function ({ label }) {
+  return label
+}
+
 module.exports = Input
