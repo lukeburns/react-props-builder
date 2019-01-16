@@ -1,7 +1,7 @@
 const React = require('react')
 const NodeEditor = require('./NodeEditor')
 
-import './style.css'
+// import './style.css'
 
 class TreeEditor extends React.Component {
   constructor (props) {
