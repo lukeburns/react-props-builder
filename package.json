@@ -1,11 +1,12 @@
 {
   "name": "component-editor",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "a react component that exposes a graphical interface for building react components from a palette of react components",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "start": "budo example/index.js --live -- -g browserify-css -t [ babelify --presets [ @babel/preset-env @babel/preset-react ] ]",
-    "json": "budo json-example/index.js --live -- -g browserify-css -t [ babelify --presets [ @babel/preset-env @babel/preset-react ] ]"
+    "json": "budo json-example/index.js --live -- -g browserify-css -t [ babelify --presets [ @babel/preset-env @babel/preset-react ] ]",
+    "build": "babel src --out-dir dist --copy-files"
   },
   "author": "Luke Burns <lukemburns@gmail.com",
   "contributors": [
