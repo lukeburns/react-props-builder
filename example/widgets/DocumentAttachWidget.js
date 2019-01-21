@@ -16,6 +16,9 @@ class DocumentAttachWidget extends React.Component {
   getState () {
     return this.state.files
   }
+  getData () {
+    return this.state.files
+  }
   handleChange (event) {
     console.log(event.target.files[0])
     let file = event.target.files[0]

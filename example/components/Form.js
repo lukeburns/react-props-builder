@@ -27,4 +27,8 @@ Form.Widgets = {
   children: withProps(TreeEditor, { types: { Input, TextArea, Checkbox, Dropdown } })
 }
 
+Form.getData = function ({ action, children }) {
+  return { type: 'form', action, fields: children }
+}
+
 module.exports = Form
