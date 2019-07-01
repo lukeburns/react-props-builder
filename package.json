@@ -21,13 +21,13 @@
     "browserify-css": "^0.15.0",
     "budo": "^11.6.2",
     "prop-types": "^15.6.2",
-    "react-dom": "^16.6.3"
+    "react-dom": "^16.6.3",
+    "react-pack-unpack": "^0.1.0",
+    "react-keyed-file-browser": "^1.4.3",
+    "draft-convert": "^2.1.4",
+    "draft-js": "^0.10.5"
   },
   "dependencies": {
-    "draft-convert": "^2.1.4",
-    "draft-js": "^0.10.5",
-    "react": "^16.6.3",
-    "react-keyed-file-browser": "^1.4.3",
-    "react-pack-unpack": "^0.1.0"
+    "react": "^16.6.3"
   }
 }
