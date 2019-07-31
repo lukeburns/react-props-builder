@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 
 const React = require('react')
 const Option = require('./Option')
-const { TreeEditor, withProps } = require('../../../')
+const { TreeEditor, withProps } = require('../../../src')
 
 const Dropdown = ({ options }) => (
   <select>

@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 
 const React = require('react')
 const Widgets = require('../widgets')
-const { withProps } = require('../../../')
+const { withProps } = require('../../../src') 
 
 const DocumentAttach = ({ label }) => (
   label.map(document => {

@@ -2,11 +2,11 @@
   "name": "component-editor",
   "version": "0.2.5",
   "description": "a react component that exposes a graphical interface for building react components from a palette of react components",
-  "main": "dist/index.js",
+  "main": "dist.js",
   "scripts": {
     "start": "budo examples/component-builder/index.js --live -- -g browserify-css -t [ babelify --presets [ @babel/preset-env @babel/preset-react ] ]",
     "json": "budo examples/json-builder/index.js --live -- -g browserify-css -t [ babelify --presets [ @babel/preset-env @babel/preset-react ] ]",
-    "build": "babel src --out-dir dist --copy-files",
+    "build": "browserify ./src -t browserify-css -t [ babelify --presets [ @babel/preset-env @babel/preset-react ] ] -s component-editor > dist.js",
     "postinstall": "npm run build"
   },
   "author": "Luke Burns <lukemburns@gmail.com",
@@ -17,19 +17,20 @@
   "devDependencies": {
     "babelify": "^10.0.0",
     "browserify-css": "^0.15.0",
-    "budo": "^11.6.2",
+    "budo": "^11.6.3",
+    "draft-convert": "^2.1.4",
+    "draft-js": "^0.10.5",
     "prop-types": "^15.6.2",
     "react-dom": "^16.6.3",
-    "react-pack-unpack": "^0.1.0",
     "react-keyed-file-browser": "^1.4.3",
-    "draft-convert": "^2.1.4",
-    "draft-js": "^0.10.5"
+    "react-pack-unpack": "^0.1.0"
   },
   "dependencies": {
-    "@babel/core": "^7.2.0",
     "@babel/cli": "^7.2.0",
+    "@babel/core": "^7.2.0",
     "@babel/preset-env": "^7.2.0",
     "@babel/preset-react": "^7.0.0",
-    "react": "^16.6.3"
+    "react": "^16.8.6",
+    "react-feather": "^2.0.3"
   }
 }

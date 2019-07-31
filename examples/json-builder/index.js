@@ -1,10 +1,9 @@
 import './style.css'
 
 const React = require('react')
-const { Editor } = require('../../')
+const { Editor } = require('../../src')
 const { Obj, Arr } = require('./ObjArr')
 const { render } = require('react-dom')
-const { pack, unpack } = require('react-pack-unpack')
 
 let editor = React.createRef()
 render(<Editor

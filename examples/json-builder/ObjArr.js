@@ -1,5 +1,5 @@
 const React = require('react')
-const { TreeEditor, withProps } = require('../../')
+const { TreeEditor, withProps } = require('../../src')
 const InputWidget = require('./InputWidget')
 const WidgetSelector = require('./WidgetSelector')
 
