@@ -5,7 +5,7 @@ const Form = require('./Form')
 const Description = require('./Description')
 const DocumentAttach = require('./DocumentAttach')
 const Widgets = require('../widgets')
-const { TreeEditor, withProps } = require('../../')
+const { TreeEditor, withProps } = require('../../../')
 
 const Title = ({ title }) => <h1>{title}</h1>
 const Section = ({ title = ``, children = [] }) => (

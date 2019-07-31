@@ -1,7 +1,7 @@
 import './style.css'
 
 const React = require('react')
-const { Editor } = require('../')
+const { Editor } = require('../../')
 const { Section, Form } = require('./components')
 const { render } = require('react-dom')
 const { pack, unpack } = require('react-pack-unpack')

@@ -1,5 +1,5 @@
 module.exports = {
-  TreeEditor: require('../../'),
+  TreeEditor: require('../../../'),
   InputWidget: require('./InputWidget').default,
   TextAreaWidget: require('./TextAreaWidget').default,
   WYSIWYGWidget: require('./WYSIWYGWidget').default,

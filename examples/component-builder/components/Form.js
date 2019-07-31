@@ -6,7 +6,7 @@ const TextArea = require('./TextArea')
 const Checkbox = require('./Checkbox')
 const Dropdown = require('./Dropdown')
 const { InputWidget } = require('../widgets')
-const { TreeEditor, withProps } = require('../../')
+const { TreeEditor, withProps } = require('../../../')
 
 const Form = ({ action, children }) => (
   <form action={action}>

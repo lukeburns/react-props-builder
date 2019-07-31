@@ -1,12 +1,13 @@
 {
   "name": "component-editor",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "description": "a react component that exposes a graphical interface for building react components from a palette of react components",
   "main": "dist/index.js",
   "scripts": {
-    "start": "budo example/index.js --live -- -g browserify-css -t [ babelify --presets [ @babel/preset-env @babel/preset-react ] ]",
-    "json": "budo json-example/index.js --live -- -g browserify-css -t [ babelify --presets [ @babel/preset-env @babel/preset-react ] ]",
-    "build": "babel src --out-dir dist --copy-files"
+    "start": "budo examples/component-builder/index.js --live -- -g browserify-css -t [ babelify --presets [ @babel/preset-env @babel/preset-react ] ]",
+    "json": "budo examples/json-builder/index.js --live -- -g browserify-css -t [ babelify --presets [ @babel/preset-env @babel/preset-react ] ]",
+    "build": "babel src --out-dir dist --copy-files",
+    "postinstall": "npm run build"
   },
   "author": "Luke Burns <lukemburns@gmail.com",
   "contributors": [
@@ -14,9 +15,6 @@
   ],
   "license": "MIT",
   "devDependencies": {
-    "@babel/core": "^7.2.0",
-    "@babel/preset-env": "^7.2.0",
-    "@babel/preset-react": "^7.0.0",
     "babelify": "^10.0.0",
     "browserify-css": "^0.15.0",
     "budo": "^11.6.2",
@@ -28,6 +26,10 @@
     "draft-js": "^0.10.5"
   },
   "dependencies": {
+    "@babel/core": "^7.2.0",
+    "@babel/cli": "^7.2.0",
+    "@babel/preset-env": "^7.2.0",
+    "@babel/preset-react": "^7.0.0",
     "react": "^16.6.3"
   }
 }
